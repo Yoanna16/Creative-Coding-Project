@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    
     {
         //input
        movement.x = Input.GetAxisRaw("Horizontal");
