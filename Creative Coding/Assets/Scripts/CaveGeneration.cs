@@ -83,7 +83,7 @@ public class CaveGeneration : MonoBehaviour
             {
                 if (map[x, y])
                 {
-                    Vector3 position = new Vector3(x, y, 0);
+                    Vector3 position = new Vector3(x - width / 2, 0, y - height / 2);
 
                     //also store the generated walls so they can be destroyed later 
                     walls.Add(Instantiate<GameObject>(wallPrefab, position, Quaternion.identity));
