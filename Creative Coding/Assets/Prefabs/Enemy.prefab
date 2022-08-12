@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4515579555758825176
+--- !u!1 &820835646109183966
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4369190435165967228}
-  - component: {fileID: 3325683676356692780}
-  - component: {fileID: 6620071701571588567}
-  - component: {fileID: 6406266855437518552}
-  - component: {fileID: 8974111708802175394}
+  - component: {fileID: 820835646109183963}
+  - component: {fileID: 820835646109183962}
+  - component: {fileID: 820835646109183961}
+  - component: {fileID: 820835646109183960}
+  - component: {fileID: 820835646109183967}
   m_Layer: 0
-  m_Name: Bullet
-  m_TagString: Player
+  m_Name: Enemy
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4369190435165967228
+--- !u!4 &820835646109183963
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4515579555758825176}
+  m_GameObject: {fileID: 820835646109183966}
   m_LocalRotation: {x: 0.2430433, y: -0, z: -0, w: 0.9700154}
-  m_LocalPosition: {x: 0, y: -0.087, z: 0}
-  m_LocalScale: {x: 0.52, y: 0.52, z: 0.52}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 1.17, y: 0.20879191, z: 0.84}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 28.132, y: 0, z: 0}
---- !u!33 &3325683676356692780
+--- !u!33 &820835646109183962
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4515579555758825176}
+  m_GameObject: {fileID: 820835646109183966}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &6620071701571588567
+--- !u!23 &820835646109183961
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4515579555758825176}
+  m_GameObject: {fileID: 820835646109183966}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 1
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ef9a926e46d72eb4db2f7c041d308804, type: 2}
+  - {fileID: 2100000, guid: 13734a0132c34e24b8ae501ec1c9e12b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,30 +85,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6406266855437518552
-SphereCollider:
+--- !u!143 &820835646109183960
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4515579555758825176}
+  m_GameObject: {fileID: 820835646109183966}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8974111708802175394
+  m_Height: 1.21
+  m_Radius: 0.36
+  m_SlopeLimit: 0
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: -0.03, z: 0}
+--- !u!114 &820835646109183967
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4515579555758825176}
+  m_GameObject: {fileID: 820835646109183966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e449a1c8e46878479b01ddce9602391, type: 3}
+  m_Script: {fileID: 11500000, guid: 32f0b72aeb260514189df5c80da3ecff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 0, z: 0}
-  destructionTime: 5
+  movementSpeed: 2.44
+  killDistance: 0.67

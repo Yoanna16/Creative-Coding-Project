@@ -20,6 +20,23 @@ public class BulletMovement : MonoBehaviour
         transform.Translate(velocity * Time.deltaTime);
 
         destroyBullet();
+
+        flipBullet();
+    }
+
+    void flipBullet() {
+        Vector3 scale = new Vector3(1, 1, 1);
+
+        if (velocity.x >= 0)
+        {
+            scale.x = 1;
+        }
+        else
+        {
+            scale.x = -1;
+        }
+
+        transform.localScale = scale;
     }
 
     void destroyBullet()
@@ -33,13 +50,17 @@ public class BulletMovement : MonoBehaviour
         destructionTime -= Time.deltaTime;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
-    }
+        if(other.tag == "Enemy")
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
 
-    private void OnCollisionExit(Collision collision)
-    {
-        Destroy(gameObject);
+            SpawnEnemies.enemyCount--;
+
+            GameState.gameState.GetComponent<GameState>().updateScore();
+        }
+        
     }
 }

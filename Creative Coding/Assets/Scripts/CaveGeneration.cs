@@ -19,8 +19,11 @@ public class CaveGeneration : MonoBehaviour
     public int smoothIterations = 5;
 
     //tiles which represent the walls
-    public GameObject wallPrefab;
+    public GameObject[] wallPrefabs;
     List<GameObject> walls;
+
+    public SpawnEnemies enemieScript;
+    public GameState gameStateScript;
 
     void Start()
     {
@@ -40,6 +43,14 @@ public class CaveGeneration : MonoBehaviour
         }
 
         drawMap();
+
+        enemieScript.setMap(map);
+        enemieScript.setDimensions(width, height);
+
+        gameStateScript.setMap(map);
+        gameStateScript.setDimensions(width, height);
+
+        gameStateScript.spawnPlayer();
     }
 
     //destroy current map and generate new one
@@ -85,8 +96,10 @@ public class CaveGeneration : MonoBehaviour
                 {
                     Vector3 position = new Vector3(x - width / 2, 0, y - height / 2);
 
+                    int randomWall = Random.Range(0, wallPrefabs.Length);
+
                     //also store the generated walls so they can be destroyed later 
-                    walls.Add(Instantiate<GameObject>(wallPrefab, position, Quaternion.identity));
+                    walls.Add(Instantiate<GameObject>(wallPrefabs[randomWall], position, Quaternion.identity));
                 }
             }
         }
@@ -142,14 +155,5 @@ public class CaveGeneration : MonoBehaviour
         if (map[x + 1, y + 1]) { neighborCount++; }
 
         return neighborCount;
-    }
-
-    void Update()
-    {
-        //press R to get a different map
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            regenerateMap();
-        }
     }
 }
